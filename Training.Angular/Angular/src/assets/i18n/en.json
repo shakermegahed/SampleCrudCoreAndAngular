@@ -1,0 +1,28 @@
+{
+  "AddPro": "Add Product",
+  "Print": "Print",
+  "ManagementProducts": "Manage Products",
+
+  "ProName": "Name",
+  "CategoryName": "Category",
+  "Price": "Price",
+  "All": "All",
+  "Search": "Search",
+  "action": "Action",
+  "validationReq": "Required",
+  "Delete": "Delete",
+  "Replace": "Replace",
+  "ChangeDate": "Change Date",
+  "deleteallfile": "Delete All File",
+  "ChangeStatus": "ChangeStatus",
+  "Preview": "Preview",
+  "Save": "Save",
+  "Edit": "Edit",
+  "cancel": "Cancel",
+  "OK": "OK",
+  "Showing": "Showing",
+"to": "to",
+"of": "of",
+"entries": "entries",
+"PageTitle":"Home"
+}

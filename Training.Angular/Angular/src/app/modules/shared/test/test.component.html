@@ -1,0 +1,275 @@
+<div class="container bg-gray">
+<h2 class="bg-primary text-white text-center">{{ title }}</h2>
+<div class="container">
+  <div class="row mt-4">
+
+    <div class="col-sm">
+      <canvas #lineCanvas></canvas>
+      <h5 class="card-title text-center">3-Line chart</h5>
+    </div>
+    <div class="col-sm">
+        <canvas #PolarArea></canvas>
+        <h5 class="card-title text-center">6-Polar Area</h5>
+      </div>
+      <div class="col-sm">
+        <canvas #bar></canvas>
+       
+      </div>
+  </div>
+
+
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card card-hover">
+            <div class="card-body">
+                <div class="d-md-flex align-items-center">
+                    <div>
+                        <h4 class="card-title"> الجهات </h4>
+                    </div>
+                  
+                </div>
+                <!-- column -->
+                <div class="row m-t-40">
+                    <!-- column -->
+                    <div class="col-lg-5">
+                        <!-- الجهات -->
+                        <canvas #actorsdoughnutCanvas width="200px"></canvas>
+
+                    </div>
+                    <!-- column -->
+                    <div class="col-lg-7">
+                        <h1 class="display-6 m-b-0 font-medium">100</h1>
+                 
+
+                        <span>عدد المتدربين</span>
+                        <div class="row">
+
+                    
+                        <ul class="list-style-none col-6 px-4">
+                            <li class="m-t-20"><i class="fas fa-circle m-r-5 text-cyan font-12"></i> وزارة التعليم <span class="float-right">45</span></li>
+                            <li class="m-t-20"><i class="fas fa-circle m-r-5 text-info font-12"></i> الصندوق السعودي للتنمية  <span class="float-right">14</span></li>
+                            <li class="m-t-20"><i class="fas fa-circle m-r-5 text-orange font-12"></i> المركز الوطني لقياس أداء الأجهرة العامة   <span class="float-right">25</span></li>
+                            <li class="m-t-20"><i class="fas fa-circle m-r-5 text-primary font-12"></i> الهيئة العامة للترفيه  <span class="float-right">5</span></li>
+                            <li class="m-t-20"><i class="fas fa-circle m-r-5 text-primary font-12"></i> المؤسسة العامة للخطوط الحديدية  <span class="float-right">5</span></li>
+                            <li class="m-t-20"><i class="fas fa-circle m-r-5 text-primary font-12"></i> الادارة العامة للخدمات الطبية للقوات المسلحة <span class="float-right">5</span></li>
+                            <li class="m-t-20"><i class="fas fa-circle m-r-5 text-primary font-12"></i>الإدارة العامة للمجاهدين<span class="float-right">5</span></li>
+                            
+                        </ul>
+
+                        <ul class="list-style-none col-6  px-4">
+                            <li class="m-t-20"><i class="fas fa-circle m-r-5 text-primary font-12"></i>الجامعة السعودية الالكترونية <span class="float-right">5</span></li>
+
+                            <li class="m-t-20"><i class="fas fa-circle m-r-5 text-cyan font-12"></i> الشؤون الخاصة لخادم الحرمين الشريفين <span class="float-right">45</span></li>
+                            <li class="m-t-20"><i class="fas fa-circle m-r-5 text-cyan font-12"></i>القوات الجوية <span class="float-right">45</span></li>
+                            <li class="m-t-20"><i class="fas fa-circle m-r-5 text-cyan font-12"></i> المجلس الصحي السعودي<span class="float-right">45</span></li>
+                            <li class="m-t-20"><i class="fas fa-circle m-r-5 text-cyan font-12"></i> المديرية العامة للأحوال المدنية <span class="float-right">45</span></li>
+
+                            <li class="m-t-20"><i class="fas fa-circle m-r-5 text-info font-12"></i> المراسم الملكية <span class="float-right">14</span></li>
+                            <li class="m-t-20"><i class="fas fa-circle m-r-5 text-orange font-12"></i> المؤسسة العامة للصناعات العسكرية   <span class="float-right">25</span></li>
+                            <li class="m-t-20"><i class="fas fa-circle m-r-5 text-primary font-12"></i> الهيئة السعودية للتخصصات الصحية  <span class="float-right">5</span></li>
+                        </ul>
+                    </div>
+                </div>
+                     
+                </div>
+                <!-- column -->
+            </div>
+        </div>
+    </div>
+   
+</div>
+
+
+
+<div class="row">
+    <!-- عدد الدورات في مدن المملكة -->
+    <div class="col-lg-6">
+        <div class="card card-hover">
+            <div class="card-body">
+                <div class="d-md-flex align-items-center">
+                    <div>
+                        <h4 class="card-title"> تفصيل عدد الدورات في مدن المملكة </h4>
+                        <h1 class="display-6 m-b-0 font-medium">400</h1>
+                    </div>
+                  
+                </div>
+                <!-- column -->
+                <div class="row m-t-40">
+                    <!-- column -->
+                    <div class="col-lg-12">
+                        <canvas    #noCoursespice></canvas>
+
+
+                    </div>
+                    <!-- column -->
+                    </div>
+                    </div>
+                    </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="card card-hover">
+            <div class="card-body">
+                <div class="d-md-flex align-items-center">
+                    <div>
+                        <h4 class="card-title"> تفصيل عدد الجهات    </h4>
+                        <h1 class="display-6 m-b-0 font-medium">270</h1>
+
+                    </div>
+                  
+                </div>
+                <!-- column -->
+                <div class="row m-t-40">
+                    <!-- column -->
+                    <div class="col-lg-12">
+                        <canvas #barCanvas></canvas>
+
+
+                    </div>
+                    <!-- column -->
+                    </div>
+                    </div>
+                    </div>
+    </div>
+    </div>
+
+    <div class="row">
+    <div class="col-lg-6">
+        <div class="card card-hover">
+            <div class="card-body">
+                <div class="d-md-flex align-items-center">
+                    <div>
+                        <h4 class="card-title"> تفصيل عدد المسجلين </h4>
+                        <h1 class="display-6 m-b-0 font-medium">270</h1>
+
+                    </div>
+                  
+                </div>
+                <!-- column -->
+                <div class="row m-t-40">
+                    <!-- column -->
+                    <div class="col-lg-12">
+                        <canvas #registrantsdoughnutCanvas></canvas>
+
+
+                    </div>
+                    <!-- column -->
+                    </div>
+                    </div>
+                    </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="card card-hover">
+            <div class="card-body">
+                <div class="d-md-flex align-items-center">
+                    <div>
+                        <h4 class="card-title">   تفصيل عدد الدورات   </h4>
+                        <h1 class="display-6 m-b-0 font-medium">270</h1>
+
+                    </div>
+                  
+                </div>
+                <!-- column -->
+                <div class="row m-t-40">
+                    <!-- column -->
+                    <div class="col-lg-12">
+                        
+                        <canvas #CourseDetailsdoughnut></canvas>
+
+
+                    </div>
+                    <!-- column -->
+                    </div>
+                    </div>
+                    </div>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card card-hover">
+                <div class="card-body">
+                    <div class="d-md-flex align-items-center">
+                        <div>
+                            <h4 class="card-title">تفصيل الدورات </h4>
+                            <h1 class="display-6 m-b-0 font-medium">270</h1>
+    
+                        </div>
+                      
+                    </div>
+                    <!-- column -->
+                    <div class="row m-t-40">
+                        <!-- column -->
+                        <div class="col-lg-12">
+                            <!-- <canvas #registrantsdoughnutCanvas></canvas> -->
+    
+                            <canvas #CourseDetailsline></canvas>
+    
+                        </div>
+                        <!-- column -->
+                        </div>
+                        </div>
+                        </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card card-hover">
+                <div class="card-body">
+                    <div class="d-md-flex align-items-center">
+                        <div>
+                            <h4 class="card-title"> تفصيل عدد المسجلين </h4>
+                            <h1 class="display-6 m-b-0 font-medium">270</h1>
+    
+                        </div>
+                      
+                    </div>
+                    <!-- column -->
+                    <div class="row m-t-40">
+                        <!-- column -->
+                        <div class="col-lg-12">
+                            <!-- <canvas #registrantsdoughnutCanvas></canvas> -->
+    
+    
+                        </div>
+                        <!-- column -->
+                        </div>
+                        </div>
+                        </div>
+        </div>
+        </div>
+    
+</div>
+<div id="cc">
+    <div id="charts"></div>
+
+</div>
+
+<div class="p-5" style="background-color:rgb(64, 196, 255);"></div>
+<div class="p-5" style="background-color:rgb(41, 97, 255);"></div>
+<div class="p-5" style="background-color:rgb(126, 116, 251);"></div>
+<div class="p-5" style="background-color:rgb(255, 130, 28);"></div>
+<div class="p-5" style="background-color:rgb(65, 191, 118);"></div>
+<div class="p-5" style="background-color:rgb(150, 79, 81);"></div>
+<div class="p-5" style="background-color:rgb(76, 86, 103);"></div>
+<div class="p-5" style="background-color:rgb(254, 84, 25);"></div>
+<div class="p-5" style="background-color:rgb(255, 255, 0);"></div>
+<div class="p-5" style="background-color:rgb(103, 193, 184);"></div>
+<div class="p-5" style="background-color:rgb(0, 144, 67);"></div>
+<div class="p-5" style="background-color:rgb(107, 72, 107)"></div>
+<div class="p-5" style="background-color:rgb(150, 132, 60)"></div>
+<div class="p-5" style="background-color:rgb(148, 159, 177)"></div>
+<div class="p-5" style="background-color:rgb(0, 193, 189)"></div>
+
+
+
+
+
+
+
+
+
+
+  

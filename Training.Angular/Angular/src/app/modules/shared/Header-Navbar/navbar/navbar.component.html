@@ -1,0 +1,274 @@
+<p-progressSpinner *ngIf="loadingSpinner">
+</p-progressSpinner>
+
+<header class="p-0 m-0" id="navbox">
+    <div class="top-bar" style="background-color: #FAFAFA;">
+        <div class="container-fluid-custem ">
+            <div class="row">
+                <div class="col-6 d-flex justify-content-start">
+                    <ul class="righ-list list-unstyled d-flex align-items-center m-0">
+                        <li class="list-item" *ngFor="let link of contactList">
+                            <a [href]="link.link" class="link-item" data-toggle="tooltip" data-placement="top"
+                                [title]="link.tooltip"> <i class="fa fa-{{link.icon}}"></i> </a>
+                        </li>
+                        <li class="list-item" (click)="specialColors()">
+
+                            <span *ngIf="blackAndWhite ==true" class="far fa-eye link-item"></span>
+                            <span *ngIf="blackAndWhite ==false" class="fas fa-eye-slash link-item"></span>
+
+                            <span [class.clicked]="blackAndWhite"></span>
+                        </li>
+
+                        <li class="list-item">
+
+                            <span *ngIf="iocnzoomin" class="fas fa-search-plus link-item"
+                                (click)="fontSize('120%')"></span>
+                            <span *ngIf="iocnzoomout" class="fas fa-search-minus link-item"
+                                (click)="fontSize('100%')"></span>
+
+
+                        </li>
+                        <!-- (click)="SearchBtnClick()" -->
+                        <li class="search-box list-item  bt-xs-hadin "  >
+                            <!-- (focusout)="SearchFocusOut()" -->
+                            <input class="text " id="SearchInput"  type="search" [(ngModel)]="value1" placeholder="Type to search"  (keydown.enter)="GeneralSearch($event.target.value)">
+                            <!-- (click)="SearchBtnClick()" -->
+                            <button class="border-0"> <i class="fa fa-search" (click)="GeneralSearch(value1)"></i></button>
+                        </li>
+                  
+
+                        <li class="d-none">  
+                             <form class="app-search position-absolute">
+                            <input type="search" class="form-control" placeholder="Search &amp; enter" (keydown.enter)="GeneralSearch($event.target.value)"> 
+                            <!-- <a class="srh-btn"><i class="ti-close"></i></a> -->
+                        </form></li>
+
+                    </ul>
+                </div>
+                <div class="col-6 d-flex justify-content-end">
+                    <ul class="righ-list list-unstyled d-flex align-items-center m-0">
+
+                        <li class="list-item " *ngIf="token==null">
+                            <a routerLink="/login" class="link-item link-with-text d-flex align-items-center">
+                                <span class="dsipl-none"> {{'Auth.LoginTitle' | translate}}</span> <i class="fas fa-sign-in-alt"></i>
+                            </a>
+                        </li>
+                        <!-- (click)="showSchedulesessions()" -->
+                        <!-- التسجيل بالدورة -->
+                        <li class="list-item " *ngIf="token!=null">
+                            <a *ngIf="getUserRoleName().toString()=='متدرب'" [routerLink]="'/trainee'"class="link-item link-with-text d-flex align-items-center"><span class="dsipl-none">{{'SideMenu.Dashboard' | translate}}</span> <i class="icon fas fa-chalkboard "></i></a>
+                            <a *ngIf="getUserRoleName().toString()=='مدير النظام'" [routerLink]="'/administ'" class="link-item link-with-text d-flex align-items-center"><span class="dsipl-none">{{'SideMenu.Dashboard' | translate}}</span> <i class="icon fas fa-chalkboard "></i></a>
+                            <a *ngIf="getUserRoleName().toString()=='مدقق التسجيل'" [routerLink]="'/rvsrgstr'" class="link-item link-with-text d-flex align-items-center"><span class="dsipl-none">{{'SideMenu.Dashboard' | translate}}</span> <i class="icon fas fa-chalkboard "></i></a>
+                            <a *ngIf="getUserRoleName().toString()=='مدقق المالى'" [routerLink]="'/finance'"class="link-item link-with-text d-flex align-items-center"><span class="dsipl-none">{{'SideMenu.Dashboard' | translate}}</span> <i class="icon fas fa-chalkboard "></i></a>
+
+                        </li>
+                        <li class="list-item" style="position: relative !important;">
+                            <div class="lang-swicher ">
+                                <a class="button link-item nav-link dropdown-toggle p-0" href="#" id="navbarDropdown2"
+                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="flag-icon {{CurrentLang == 'en'? 'flag-icon-us' : 'flag-icon-sa'}}"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right  animated bounceInDown"
+                                    aria-labelledby="navbarDropdown2">
+                                    <button class="dropdown-item " (click)="changeCurrentLang('ar')"><i
+                                            class="flag-icon flag-icon-sa"></i> العربية</button>
+                                    <button class="dropdown-item " (click)="changeCurrentLang('en')"><i
+                                            class="flag-icon flag-icon-us"></i> English</button>
+                                </div>
+                            </div>
+                            <!-- /.lang-swicher -->
+                        </li>
+                        <li class="nav-item dropdown">
+                            <!-- <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-bell font-24"></i>
+
+                          </a> -->
+                            <div class="dropdown-menu dropdown-menu-right mailbox animated fadeInDown">
+                                <span class="with-arrow"><span class="bg-primary"></span></span>
+                                <ul class="list-style-none">
+                                    <li (click)="GoToNotifications()">
+                                        <div class="drop-title bg-primary text-white">
+                                            ds
+                                            <h4 class="m-b-0 m-t-5">4 New</h4>
+                                            <span class="font-light">Notifications</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="message-center notifications">
+                                            <!-- Message -->
+                                            <a (click)="GoToNotifications()" class="message-item">
+                                                <span class="btn btn-danger btn-circle"><i
+                                                        class="fa fa-link"></i></span>
+                                                <div class="mail-contnet">
+                                                    <h5 class="message-title">Luanch Admin</h5> <span class="mail-desc">
+                                                        Just see the my new admin!</span> <span class="time">9:30
+                                                        AM</span>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)" class="message-item">
+                                                <span class="btn btn-success btn-circle"><i
+                                                        class="ti-calendar"></i></span>
+                                                <div class="mail-contnet">
+                                                    <h5 class="message-title">Event today</h5> <span
+                                                        class="mail-desc">Just a reminder that you have event</span>
+                                                    <span class="time">9:10 AM</span>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)" class="message-item">
+                                                <span class="btn btn-info btn-circle"><i class="ti-settings"></i></span>
+                                                <div class="mail-contnet">
+                                                    <h5 class="message-title">Settings</h5> <span class="mail-desc">You
+                                                        can customize this template as you want</span> <span
+                                                        class="time">9:08 AM</span>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)" class="message-item">
+                                                <span class="btn btn-primary btn-circle"><i class="ti-user"></i></span>
+                                                <div class="mail-contnet">
+                                                    <h5 class="message-title">Pavan kumar</h5> <span
+                                                        class="mail-desc">Just see the my admin!</span> <span
+                                                        class="time">9:02 AM</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-center m-b-5 text-dark" href="javascript:void(0);">
+                                            <strong>Check all notifications</strong> <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+
+                        <!-- User profile and search -->
+                        <li class="nav-item dropdown" id="dropdown" *ngIf="token!=null">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href=""
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                    src="../../../../assets/images/users/user.png" alt="user" class="rounded-circle"
+                                    width="31"></a>
+                            <div class="dropdown-menu dropdown-menu-right user-dd animated fadeInDown mt-5">
+                                <span class="with-arrow"><span class="bg-primary"></span></span>
+                                <div class="no-block align-items-center p-15 bg-primary text-white m-b-10">
+                                    <div class="d-none"><img src="../../../../assets/images/users/user.png" alt="user"
+                                            class="img-circle" width="60"></div>
+                                    <div class="m-l-10 text-center">
+                                        <h4 class="m-b-0 py-1">{{getUserName()}}</h4>
+
+                                        <!-- <p class=" m-b-0">varun@gmail.com</p> -->
+                                        <p class=" m-b-0  py-1">{{getUserRoleName()}}</p>
+
+                </div>
+            </div>
+            <a class="dropdown-item " *ngIf="getUserRoleName().toString()=='متدرب'" [routerLink]="'/trainee'" ><i class="fas fa-chalkboard m-r-5 m-l-5"></i>  {{'SideMenu.Dashboard' | translate}}  </a>
+            <a class="dropdown-item " *ngIf="getUserRoleName().toString()=='مدير النظام'" [routerLink]="'/administ'"><i class="fas fa-chalkboard m-r-5 m-l-5"></i>   {{'SideMenu.Dashboard' | translate}}  </a>
+            <a class="dropdown-item " *ngIf="getUserRoleName().toString()=='مدقق التسجيل'" [routerLink]="'/rvsrgstr'"><i class="fas fa-chalkboard m-r-5 m-l-5"></i>  {{'SideMenu.Dashboard' | translate}} </a>
+            <a class="dropdown-item " *ngIf="getUserRoleName().toString()=='مدقق المالى'" [routerLink]="'/finance'"><i class="fas fa-chalkboard m-r-5 m-l-5"></i>  {{'SideMenu.Dashboard' | translate}} </a>
+
+
+
+
+
+                                <a class="dropdown-item d-none" href="javascript:void(0)"><i
+                                        class="ti-email m-r-5 m-l-5"></i> Inbox</a>
+                                <div class="dropdown-divider d-none"></div>
+                                <a class="dropdown-item d-none" href="javascript:void(0)"><i
+                                        class="ti-settings m-r-5 m-l-5"></i> Account Setting</a>
+                                <div class="dropdown-divider d-none"></div>
+                                <a class="dropdown-item d-none" href="javascript:void(0)"><i
+                                        class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                                <div class="dropdown-divider d-none"></div>
+                                <div class="p-2">
+                                    <a [routerLink]="''"
+                                        class="dropdown-item btn btn-danger btn-rounded p-3 btn btn-primary"
+                                        href="javascript:void(0)" (click)="SignOut()">
+                                        <i class="fas fa-power-off"></i> {{'Auth.SignOut'|translate}}
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- User profile and search -->
+
+                        <li class="list-item  d-none">
+                            <div class="search-toggler">
+                                <a href="#!" class="link-item"> <i class="fa fa-search"></i> </a>
+                            </div>
+                        </li>
+                    
+
+
+                          
+
+
+                    </ul>
+                </div>
+                <!-- /.col-md-6 -->
+            </div>
+        </div>
+        <hr class="mb-0 disp-serch-sc mt-0">
+        <!-- /.container -->
+    </div>
+
+    <div class="top-bar disp-serch-sc" style="background-color: #FAFAFA;">
+       
+        <div class="container text-center ">
+            <div class="row">
+                <div class="col-6 d-flex justify-content-start">
+                    </div>
+                    </div>
+                    <div class="search-box list-item "  >
+                        <!-- (focusout)="SearchFocusOut()" -->
+                        <input class="text " id="SearchInput"  type="search" [(ngModel)]="value1" placeholder="Type to search"  (keydown.enter)="GeneralSearch($event.target.value)">
+                        <!-- (click)="SearchBtnClick()" -->
+                        <button class="border-0"> <i class="fa fa-search" (click)="GeneralSearch(value1)"></i></button>
+                    </div>
+                    </div>
+                </div>
+    <!-- /.top-bar -->
+ 
+    <nav class="navbar navbar-expand-lg navbar-light p-0">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img height="55px" src="../../../../../assets/images/Group 571.png"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse   justify-content-center" id="navbarSupportedContent">
+                <ul class="navbar-nav animated fadeIn ">
+                    <li class="nav-item ">
+
+                        <a [ngClass]="{'actives':home==''}" class="nav-link nav-btn" routerLink="/">{{'General.Home' |
+                            translate}}</a>
+
+                    </li>
+
+                    <li class="nav-item ">
+
+                        <a [ngClass]="{'actives': id==0}" class="nav-link nav-btn"
+                            (click)="showSchedulesessions()">{{'Auth.Schedulesessions' | translate}}</a>
+
+                    </li> <!-- <a  (click)="showProfessionalcourses()" href="/courses-for-trainee"> </a> -->
+                    <li class="nav-item">
+                       
+                        <a [ngClass]="{'actives': id==1}" class="nav-link nav-btn"
+                            (click)="showProfessionalcourses($event)">{{'Auth.Professionalcourses' | translate}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-btn" [ngClass]="{'actives': id==4}"
+                            (click)="showGeneralcoursess($event)">{{'Auth.Generalcourses' | translate}}</a>
+                    </li>
+
+
+                </ul>
+            </div>
+
+            <a class="navbar-brand" href="https://www.vision2030.gov.sa/" target="_blank"><img height="55px" src="../../../../../assets/images/Mask Group 3.png"></a>
+        </div>
+        <!-- .container -->
+    </nav>
+  
+</header>

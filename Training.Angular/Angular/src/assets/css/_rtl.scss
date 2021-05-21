@@ -1,0 +1,28 @@
+* {
+    direction: rtl;
+}
+
+:root,
+.rtl {
+    text-align: right;
+}
+
+.owl-container {
+  
+    direction: ltr !important;
+  }
+
+#side-menu-switch:checked+.side-menu+.dashboard-container {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+#side-menu-switch+.side-menu+.dashboard-container {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.side-menu label {
+    right: auto;
+    left: 15px;
+}

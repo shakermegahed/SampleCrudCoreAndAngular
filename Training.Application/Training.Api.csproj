@@ -1,0 +1,57 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>3c694806-e454-4a00-9177-cbc1c7fa04f1</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.95.4" />
+    <PackageReference Include="DinkToPdf" Version="1.0.8" />
+    <PackageReference Include="DotNetCore.NPOI" Version="1.2.3" />
+    <PackageReference Include="FreeSpire.XLS" Version="10.10.0" />
+    <PackageReference Include="iTextSharp" Version="5.5.13.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.6.3" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.6" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Hangfire.Core" Version="1.7.*" />
+    <PackageReference Include="Hangfire.SqlServer" Version="1.7.*" />
+    <PackageReference Include="Hangfire.AspNetCore" Version="1.7.*" />
+    <PackageReference Include="System.ServiceModel.Duplex" Version="4.4.*" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.4.*" />
+    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.4.*" />
+    <PackageReference Include="System.ServiceModel.Security" Version="4.4.*" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Training.Domain\Training.Domain.csproj" />
+    <ProjectReference Include="..\Training.DTO\Training.DTO.csproj" />
+    <ProjectReference Include="..\Training.Implementation\Training.Implementation.csproj" />
+    <ProjectReference Include="..\Training.Service\Training.Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Connected Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="libwkhtmltox.dylib">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services" />
+  </ItemGroup>
+
+
+</Project>

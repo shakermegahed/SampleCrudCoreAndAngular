@@ -1,0 +1,231 @@
+<p-progressSpinner *ngIf="loadingSpinner">
+</p-progressSpinner>
+
+<div class="container">
+<section class="page-breadcrumb px-0">
+<button class="dropdown-item " (click)="changeCurrentLang('ar')"><i
+        class="flag-icon flag-icon-sa"></i> العربية</button>
+<button class="dropdown-item " (click)="changeCurrentLang('en')"><i
+        class="flag-icon flag-icon-us"></i> English</button>
+
+  <div class="row">
+    <div class="col-sm-6 col-12 align-self-center">
+      <h4 class="page-title"> {{ "ManagementProducts" | translate}}</h4>
+      <div class="d-flex align-items-center">
+
+      </div>
+    </div>
+    <!-- Avtion Buttons Start  -->
+    <div class="col-sm-6 col-12">
+      <div class="action d-flex justify-content-end align-items-center">
+
+        <div class=" bd-highlight col-lg-5 col-md-7  col-sm-4  col-2" (click)="OpenModelAdd()">
+          <button type="button" class="btn btn-primary shadow" data-toggle="modal" data-target="#exampleModal" style="width: 50% !important;float: left;">
+            <span class=" btn-text d-sm-none d-md-none d-lg-inline-block ">{{ "AddPro" | translate}}</span><i class="fas fa-user-plus px-2"></i>
+          </button>
+        </div>
+
+      <button tooltipPosition="top" type="button" (click)="printPage()" class="btn btn-dark p-mr-2 d-none-print mx-1  rounded shadow" [pTooltip]="'Print' | translate"><i class="fas fa-print fa-lg"></i></button>
+
+
+      </div>
+    </div>
+    <!-- Avtion Buttons Start  -->
+  </div>
+</section>
+<!-- End page-breadcrumb -->
+<!-- Start Search Section -->
+
+
+<form [formGroup]="ProFormForSearch">
+  <section class="search-section bg-white p-2">
+
+    <div class="panel-body">
+      <div class="row  justify-content-between align-items-center m-0">
+
+        <div class="col-lg-3 col-sm-6 col-12 m-md-1">
+          <!-- {{TraineeFormForSearch.value|json}} -->
+          <div class="input-group-prepend">
+            <button (click)="GetProData()" type="submit" class="rounded btn btn-primary"><i class="fas fa-search px-1"></i></button>
+            <input type="text" class="form-control rounded " [placeholder]="'Search' | translate" formControlName="name" (input)="CloseVisible = true">
+            <button class='btn text-danger animated fadeInLeft' type="reset" [hidden]="!CloseVisible" (click)="ResetForm()"><i class='fas fa-times'></i></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</form>
+
+<!-- End Search Section -->
+<!-- <p-button (click)="export()" icon="pi pi-download" [label]="'Governmental.Exportingentitiedata' | translate" styleClass="p-button-warning shadow m-1"></p-button> -->
+
+<section class="table-section trainee-view">
+  <div class="panel">
+    <div class="panel-body">
+      <p-table [responsive]="true" [value]="elements" id="Trainee-excel-table" [rowHover]="true" [rows]="50" [paginator]="true" currentPageReportTemplate="{{Showingpagination  | translate}}  {first} {{TOpagination  | translate}} {last} {{Ofpagination  | translate}} {totalRecords} {{Entriespagination  | translate}}"
+               [showCurrentPageReport]="true" class="p-datatable-responsive-demo trainee-table" [rowsPerPageOptions]="[10,25,50]" sortMode="single" reorderableColumns="true" filterPlaceholder="Search" filterMatchMode="contains" styleClass="excel-print p-datatable-sm  p-datatable-striped"
+               columnResizeMode="expand" [resizableColumns]="true" [lazy]="true" (onLazyLoad)="loadCustomers($event)" [totalRecords]="totalRecords" [loading]="loading">
+        <!-- <ng-template pTemplate="caption">
+            <div class="p-d-flex">
+            </div>
+        </ng-template> -->
+        <ng-template pTemplate="header">
+          <tr class="text-center">
+   
+            <th pSortableColumn="i" style="width: 65px;">
+              #
+
+            </th>
+            <th>
+              {{ "ProName" | translate}}
+            </th>
+
+
+            <th>
+              {{ "CategoryName" | translate}}
+              
+            </th>
+
+            <th>
+                {{ "Price" | translate}}
+                
+              </th>
+
+            <th *ngIf="!getactiveonly" pSortableColumn="title" style="width:50px;" class="d-none-print removeexcel">
+              {{ "action" | translate}}
+            </th>
+
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-element let-i="rowIndex" class="text-center ">
+          <tr>
+
+            <td>{{i+1}}</td>
+            <td class=" linkname " (click)="viewmodelView(element.productId)"> {{element.name }}</td>
+
+
+            <td> {{element.categoryName }}</td>
+
+
+
+            <td> {{element.price }}</td>
+
+
+            <td *ngIf="!getactiveonly" class="actions d-none-print removeexcel">
+              <div class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class=" fa fa-ellipsis-v"></i> </a>
+                <ul class="dropdown-menu animated fadeInUp">
+
+                  <li (click)="viewmodelView(element.productId)" class="dropdown-item hoverMuose">
+                    <button data-toggle="modal" class="hoverMuose" data-target="#exampleModal"><i class="action-icon mdi mdi-eye"></i><span class="action-text">  {{"Preview" | translate}} </span></button>
+                  </li>
+               
+                  <li (click)="viewmodeledit(element.productId)" class="dropdown-item hoverMuose">
+                    <button data-toggle="modal" class="hoverMuose" data-target="#exampleModal"> <i class="action-icon mdi mdi-grease-pencil"></i><span class="action-text">  {{"Edit" | translate}} </span></button>
+                  </li>
+
+        
+
+                  <li (click)="ConfirmDelete(element.productId)" class="dropdown-item hoverMuose">
+                    <button class="hoverMuose"><i class="action-icon far fa-trash-alt text-danger px-1"></i><span class="action-text">  {{"Delete" | translate}} </span></button>
+                  </li>
+
+                </ul>
+              </div>
+            </td>
+
+          </tr>
+        </ng-template>
+
+      </p-table>
+
+    </div>
+  </div>
+</section>
+
+
+<p-dialog maximizable="true" [header]="ModelTiltle | translate" [(visible)]="displayModalPro"  [style]="{width: '50vw'}">
+  <div class="p-4">
+    <form [formGroup]="ProForm">
+      <!--{{TraineeForm.value|json}}-->
+      <div class="form-row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>{{ "Name" | translate}} <span class="text-danger">*</span></label>
+            <div class="input-group with-icon">
+              <div class="input-group-prepend m-0">
+                <div class="input-group-text">
+                  <i class="mdi mdi-account"></i>
+                </div>
+              </div>
+              <input type="text" [placeholder]="'name' | translate" formControlName="name" class="form-control rounded ">
+            </div>
+            <p class="text-danger " *ngIf="ProForm.get('name').invalid && (ProForm.get('name').touched || formSubmitted)">
+              <span class="m-0" *ngIf="ProForm.get('name').errors.required">
+                {{"validationReq"| translate}}
+              </span>
+            </p>
+          </div>
+        </div>
+        <!-- /.col-md-6 -->
+
+        <div class="col-md-6" >
+          <div class="form-group">
+            <label>{{ "Price" | translate}} <span class="text-danger">*</span></label>
+            <div class="input-group with-icon">
+              <div class="input-group-prepend m-0">
+                <div class="input-group-text">
+                  <i class="mdi mdi-account"></i>
+                </div>
+              </div>
+              <input type="text" [placeholder]="'Price' | translate" formControlName="price" class="form-control rounded ">
+            </div>
+            <p class="text-danger " *ngIf="ProForm.get('price').invalid && (ProForm.get('price').touched || formSubmitted)">
+              <span class="m-0" *ngIf="ProForm.get('price').errors.required">{{"validationReq"| translate}}</span>
+            </p>
+          </div>
+        </div>
+        <!-- /.col-md-6 -->
+
+        <div class="col-md-6" title="text">
+          <div class="form-group">
+            <label>{{ "CategoryName" | translate}}<span class="text-danger">*</span> </label>
+            <div class="input-group with-icon">
+              <div class="input-group-prepend m-0">
+                <div class="input-group-text">
+                  <i class="far fa-id-card"></i>
+                </div>
+              </div>
+
+              <select class="form-control" formControlName="categoryId">
+                <option value="0">{{'CategoryName' | translate}}</option>
+                <option value="{{cat.id}}" *ngFor="let cat of Cats">{{cat.name }}</option>
+              </select>
+            </div>
+
+            <p class="alert text-danger " *ngIf="ProForm.get('categoryId').invalid && (ProForm.get('categoryId').touched || formSubmitted)">
+              <span class="m-0">{{ "validationReq"| translate}}</span>
+            </p>
+
+          </div>
+        </div>
+
+      </div>
+      <!-- <input type="hidden" formControlName="productId"> -->
+    </form>
+
+  </div>
+  <div class="modal-footer d-flex justify-content-center ">
+    <button [disabled]="ProForm.invalid" data-ripple-color="primary" type="button" *ngIf="btnsave" (click)="onSubmit()" class="btn btn-primary "><i class="mx-2   p-button-icon pi pi-save"></i>{{ "Save" | translate}}</button>
+    <button data-ripple-color="primary" type="button" *ngIf="btnedit" (click)="onSubmitedit()" class="btn btn-primary"><i class="mx-2 p-button-icon pi pi-save"></i>{{ "Save" | translate}}</button>
+
+    <button data-ripple-color="danger" type="button" (click)="displayModalPro=false" class="btn btn-outline-secondary " data-dismiss="modal"><i class="mx-2 p-button-icon pi pi-times"></i>{{ "cancel" | translate}}</button>
+
+
+
+  </div>
+
+</p-dialog>
+</div>
+<p-toast></p-toast>

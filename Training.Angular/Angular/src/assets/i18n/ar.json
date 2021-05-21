@@ -1,0 +1,23 @@
+{
+  "AddPro":"اضافة منتج",
+  "Print": "طباعة",
+  "ManagementProducts":"ادارة المنتجات",
+  "All": "الكل",
+  "Search": "بحث",
+  "ProName":"الاسم",
+  "CategoryName":"التصنيف",
+  "Price":"السعر",
+  "action": "الاجراء ",
+  "Preview": "استعراض",
+  "Save": "حفظ",
+  "Edit": "تعديل",
+  "cancel": "الغاء",
+  "OK": "موافق",
+  "Delete": "حذف",
+  "validationReq": "هذا الحقل الزامى",
+  "Showing": "إظهار",
+  "to": "إلى",
+  "of": "من أصل",
+  "entries": "مُدخل",
+  "PageTitle":"الرئيسية"
+  }

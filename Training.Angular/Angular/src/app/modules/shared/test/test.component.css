@@ -1,0 +1,50 @@
+.mainBg{
+    background-color: #f9f9f9 !important;
+    /* // position: relative !important; */
+    margin-bottom: 20px;
+}
+.courser-detailes {
+    background-color: #ffffff;
+    margin: 0;
+    width: 85%;
+    border-radius: 10px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .1);
+
+}
+
+.btn-upload{
+    padding: 12px;
+    border-radius: 9px;
+    color: white;
+    border: 0;
+}
+.btn-icon{
+    background-color: #f8f8f8;
+    padding: 15px 24px;
+    margin: 0px;
+    border-radius: 7px;
+    color: #2980b9;
+}
+
+.btn-bg-upload-1{
+    background-color: #2980b9;
+
+}
+.btn-bg-upload-2{
+    background-color: #3498db;
+
+}
+.btn-bg-upload-3{
+    background-color: #16a085;
+
+}
+
+:host ::ng-deep #cc .c3 svg{
+    direction: ltr !important;
+}
+
+:host ::ng-deep #cc .c3-chart-arcs-title {
+    fill: black;
+    font-size: 20px;
+    font-weight: bold;
+  }

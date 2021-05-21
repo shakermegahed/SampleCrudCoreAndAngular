@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Localization\Resource.ar-SA.resx" />
+    <EmbeddedResource Remove="Localization\Resource.en-US.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Localization" Version="3.1.10" />
+    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="18.4.0.35" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Training.Core\Training.Core.csproj" />
+    <ProjectReference Include="..\Training.Domain\Training.Domain.csproj" />
+    <ProjectReference Include="..\Training.Interface\Training.Interface.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="ResTranslationAr.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ResTranslationAr.resx</DependentUpon>
+    </Compile>
+    <Compile Update="ResTranslationEn.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ResTranslationEn.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="ResTranslationAr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResTranslationAr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ResTranslationEn.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResTranslationEn.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

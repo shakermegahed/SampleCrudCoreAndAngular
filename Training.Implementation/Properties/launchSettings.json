@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Training.Implementation": {
+      "commandName": "Project",
+      "remoteDebugEnabled": false
+    }
+  }
+}

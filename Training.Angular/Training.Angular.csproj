@@ -1,0 +1,194 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <IsPackable>false</IsPackable>
+    <SpaRoot>ClientApp\</SpaRoot>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+
+    <!-- Set this to true if you enable server-side prerendering -->
+    <BuildServerSideRenderer>false</BuildServerSideRenderer>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.8" />
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.1.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Content Remove="$(SpaRoot)**" />
+    <None Remove="$(SpaRoot)**" />
+    <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Remove="ClientApp\node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\src\app\models\Admin\ReviewUsersFilter.ts" />
+    <None Remove="ClientApp\src\app\models\Authentication\Roles.ts" />
+    <None Remove="ClientApp\src\app\models\City\ReviewCityDTO.ts" />
+    <None Remove="ClientApp\src\app\models\City\ReviewCityFilter.ts" />
+    <None Remove="ClientApp\src\app\models\Common\LookUpString.ts" />
+    <None Remove="ClientApp\src\app\models\Courses\Course.ts" />
+    <None Remove="ClientApp\src\app\models\Courses\CourseDatsAndAttendTrainee.ts" />
+    <None Remove="ClientApp\src\app\models\Courses\CourseExtraSetting.ts" />
+    <None Remove="ClientApp\src\app\models\Courses\CourseExtraSettingImplment.ts" />
+    <None Remove="ClientApp\src\app\models\Courses\CourseImp.ts" />
+    <None Remove="ClientApp\src\app\models\Courses\CourseStatusEnum.ts" />
+    <None Remove="ClientApp\src\app\models\Courses\CoursesTypes.ts" />
+    <None Remove="ClientApp\src\app\models\Courses\CourseTypes.ts" />
+    <None Remove="ClientApp\src\app\models\Courses\FileDownload.ts" />
+    <None Remove="ClientApp\src\app\models\Courses\PrevCourses.ts" />
+    <None Remove="ClientApp\src\app\models\Courses\ReviewCoursesDTO.ts" />
+    <None Remove="ClientApp\src\app\models\Courses\ReviewCoursesFilter.ts" />
+    <None Remove="ClientApp\src\app\models\Courses\TraineePrvCourse.ts" />
+    <None Remove="ClientApp\src\app\models\Courses\TraineeTestResult.ts" />
+    <None Remove="ClientApp\src\app\models\Courses\TraineeTestResultFilter.ts" />
+    <None Remove="ClientApp\src\app\models\Dashboard\AdminDashBoard\AdminTraineeRank.ts" />
+    <None Remove="ClientApp\src\app\models\Dashboard\AdminDashBoard\TraineeRankPro.ts" />
+    <None Remove="ClientApp\src\app\models\Dashboard\AdminTraineeRankProCourse.ts" />
+    <None Remove="ClientApp\src\app\models\Dashboard\AgingRportPayment.ts" />
+    <None Remove="ClientApp\src\app\models\Dashboard\CourseForDashboard.ts" />
+    <None Remove="ClientApp\src\app\models\Dashboard\CoursesAcceptedStartingDate.ts" />
+    <None Remove="ClientApp\src\app\models\Dashboard\CoursesPerCity.ts" />
+    <None Remove="ClientApp\src\app\models\Dashboard\CourseStatics.ts" />
+    <None Remove="ClientApp\src\app\models\Dashboard\GovDetailsStats.ts" />
+    <None Remove="ClientApp\src\app\models\Dashboard\GovernmentalForAdmin.ts" />
+    <None Remove="ClientApp\src\app\models\Dashboard\GovWithTrainee.ts" />
+    <None Remove="ClientApp\src\app\models\Dashboard\MainProfisionalData.ts" />
+    <None Remove="ClientApp\src\app\models\Dashboard\PassAndRetakeCourses.ts" />
+    <None Remove="ClientApp\src\app\models\Dashboard\ProfisionalCoursePayment.ts" />
+    <None Remove="ClientApp\src\app\models\Dashboard\RegisteredTrainee.ts" />
+    <None Remove="ClientApp\src\app\models\Dashboard\RegisteredTraineesStats.ts" />
+    <None Remove="ClientApp\src\app\models\Dashboard\StatusCoursesPercent.ts" />
+    <None Remove="ClientApp\src\app\models\Dashboard\StatusCoursesWithStats.ts" />
+    <None Remove="ClientApp\src\app\models\Dashboard\WorkPlacesCourses.ts" />
+    <None Remove="ClientApp\src\app\models\Dashboard\WorkPlacesForAdminDashBoard.ts" />
+    <None Remove="ClientApp\src\app\models\Log\Log.ts" />
+    <None Remove="ClientApp\src\app\models\Log\LogFilter.ts" />
+    <None Remove="ClientApp\src\app\models\Report\CourseRevenuePerMonth.ts" />
+    <None Remove="ClientApp\src\app\models\Report\Filters\GovernmentalRptFilter.ts" />
+    <None Remove="ClientApp\src\app\models\Report\GovernmentalReport.ts" />
+    <None Remove="ClientApp\src\app\models\Report\TraineeAging.ts" />
+    <None Remove="ClientApp\src\app\models\Report\UnDueRevenueCourse.ts" />
+    <None Remove="ClientApp\src\app\models\Requests\EditRequestDetails.ts" />
+    <None Remove="ClientApp\src\app\models\Requests\RequestExtraSetting.ts" />
+    <None Remove="ClientApp\src\app\models\Requests\RequestResultSaveDTO.ts" />
+    <None Remove="ClientApp\src\app\models\Requests\Requests.ts" />
+    <None Remove="ClientApp\src\app\models\Requests\RequestsFilter.ts" />
+    <None Remove="ClientApp\src\app\models\Requests\RequestStatus.ts" />
+    <None Remove="ClientApp\src\app\models\Requests\RequestTypes.ts" />
+    <None Remove="ClientApp\src\app\models\Requests\TraineeMakeRequset.ts" />
+    <None Remove="ClientApp\src\app\models\Requests\TranieeCourseRequest.ts" />
+    <None Remove="ClientApp\src\app\models\RevisionRegister\Tasks\TaskDecision.ts" />
+    <None Remove="ClientApp\src\app\models\Subscription\Subscription.ts" />
+    <None Remove="ClientApp\src\app\models\Trainee\AddTraineeToCourse.ts" />
+    <None Remove="ClientApp\src\app\models\Trainee\GovernmentsWithTrainees.ts" />
+    <None Remove="ClientApp\src\app\models\Trainee\ProFormExtraSetting.ts" />
+    <None Remove="ClientApp\src\app\models\Trainee\TraineeEnergyForm.ts" />
+    <None Remove="ClientApp\src\app\models\Trainee\TraineeProForm.ts" />
+    <None Remove="ClientApp\src\app\models\Trainee\TraineeWaitingList.ts" />
+    <None Remove="ClientApp\src\app\models\Trainee\WizerdSteps.ts" />
+    <None Remove="ClientApp\src\app\models\Trainer\ReviewTrainerDTO.ts" />
+    <None Remove="ClientApp\src\app\models\Trainer\ReviewTrainerFilter.ts" />
+    <None Remove="ClientApp\src\app\modules\Admin\chart\others-chart\others-chart.component.ts" />
+    <None Remove="ClientApp\src\app\modules\RevisionFinance\chart\pro-chart\pro-chart.component.spec.ts" />
+    <None Remove="ClientApp\src\app\modules\RevisionFinance\chart\pro-chart\pro-chart.component.ts" />
+    <None Remove="ClientApp\src\app\modules\RevisionFinance\reports\aging-report\aging-report.component.ts" />
+    <None Remove="ClientApp\src\app\modules\RevisionFinance\reports\govs-revenue\govs-revenue.component.ts" />
+    <None Remove="ClientApp\src\app\modules\RevisionFinance\reports\undue-revenue\undue-revenue.component.ts" />
+    <None Remove="ClientApp\src\app\modules\RevisionRegister\chart\fcto-chart\fcto-chart.component.spec.ts" />
+    <None Remove="ClientApp\src\app\modules\RevisionRegister\chart\fcto-chart\fcto-chart.component.ts" />
+    <None Remove="ClientApp\src\app\modules\RevisionRegister\chart\gover-chart\gover-chart.component.spec.ts" />
+    <None Remove="ClientApp\src\app\modules\RevisionRegister\chart\gover-chart\gover-chart.component.ts" />
+    <None Remove="ClientApp\src\app\modules\RevisionRegister\chart\others-chart\others-chart.component.ts" />
+    <None Remove="ClientApp\src\app\modules\RevisionRegister\chart\pro-chart\pro-chart.component.spec.ts" />
+    <None Remove="ClientApp\src\app\modules\RevisionRegister\chart\pro-chart\pro-chart.component.ts" />
+    <None Remove="ClientApp\src\app\modules\shared\Chart\professional\professional.component.spec.ts" />
+    <None Remove="ClientApp\src\app\modules\shared\Chart\professional\professional.component.ts" />
+    <None Remove="ClientApp\src\app\Services\DashBoard\dashboard.service.ts" />
+    <None Remove="ClientApp\src\app\Services\Report\report.service.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Remove="ClientApp\src\app\modules\shared\CourseMangment\viewcoursesShared\viewcoursesShared.component.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\modules\shared\log\log.component.spec.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\modules\shared\log\log.component.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\Services\Trainee\TraineesService.service.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ClientApp\tsconfig.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Training.Domain\Training.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\models\Admin\ReviewUsersDTO.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\Admin\ReviewUsersFilter.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\app\models\Courses\NewFolder\" />
+    <Folder Include="ClientApp\src\app\modules\Admin\Reports\" />
+    <Folder Include="ClientApp\src\app\modules\Admin\UserMangment\" />
+    <Folder Include="ClientApp\src\app\modules\RevisionRegister\Reports\" />
+    <Folder Include="ClientApp\src\app\modules\shared\Reports\" />
+    <Folder Include="ClientApp\src\app\Services\Accounts\" />
+    <Folder Include="ClientApp\src\app\Services\City\" />
+    <Folder Include="ClientApp\src\app\Services\Log\" />
+    <Folder Include="ClientApp\src\app\Services\Common\" />
+    <Folder Include="ClientApp\src\app\Services\Requests\" />
+    <Folder Include="ClientApp\src\app\Services\Trainer\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Update="ClientApp\src\app\models\City\ReviewCityDTO.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\app\models\Requests\RequestsFilter.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+  </ItemGroup>
+
+  <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
+    <!-- Ensure Node.js is installed -->
+    <Exec Command="node --version" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+  </Target>
+
+  <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+    <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build -- --prod" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build:ssr -- --prod" Condition=" '$(BuildServerSideRenderer)' == 'true' " />
+
+    <!-- Include the newly-built files in the publish output -->
+    <ItemGroup>
+      <DistFiles Include="$(SpaRoot)dist\**; $(SpaRoot)dist-server\**" />
+      <DistFiles Include="$(SpaRoot)node_modules\**" Condition="'$(BuildServerSideRenderer)' == 'true'" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+
+</Project>
