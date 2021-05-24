@@ -5,7 +5,6 @@ import {
   Title,
 } from "@angular/platform-browser";
 import { OwlCarousel } from "src/app/models/Common/owl-carousel";
-import { YoutubeService } from "src/app/Services/Shared/youtube-service.service";
 import { Lightbox } from "ngx-lightbox";
 import { NgxSpinnerService } from "ngx-spinner";
 import { TranslateService } from "@ngx-translate/core";
@@ -26,7 +25,6 @@ export class HomePageComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private lightbox: Lightbox,
     private spinner: NgxSpinnerService,
-    private youTubeService: YoutubeService,
 
     private title: Title,
     private translate: TranslateService
